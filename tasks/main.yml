@@ -2,5 +2,21 @@
 # tasks file for ansible-role-nomad
 - get_url:
     url: "{{ nomad_url }}"
+    dest: "{{ nomad_zip_path }}"
+    mode: 0644
+
+- apt:
+    name: unzip
+    state: present
+
+- unarchive:
+    remote_src: yes
+    src: "{{ nomad_zip_path }}"
     dest: "{{ nomad_bin }}"
     mode: 0755
+  register: unzip
+
+- file:
+    path: "{{ nomad_zip_path }}"
+    state: absent
+  when: unzip | success
