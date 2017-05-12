@@ -1,2 +1,6 @@
 ---
 # tasks file for ansible-role-nomad
+- get_url:
+    url: "{{ nomad_url }}"
+    dest: "{{ nomad_bin }}"
+    mode: 0755

@@ -1,2 +1,5 @@
 ---
 # defaults file for ansible-role-nomad
+nomad_url: https://releases.hashicorp.com/nomad/0.5.6/nomad_0.5.6_linux_amd64.zip?_ga=2.238400192.177246761.1494554547-557112566.1453211084
+
+nomad_bin: /usr/local/bin/nomad
